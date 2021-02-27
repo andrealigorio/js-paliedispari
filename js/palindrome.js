@@ -31,11 +31,17 @@ function palindrome(word) {
     for (i = (word.length-1); i >= 0; i--) {
         reverseWord.push(word.charAt(i));
     }
-
-    for (i = 0; i < word.length; i++){
+/* Inizializzo una variabile contatore per verificare 
+che effettivamente tutti caratteri sono uguali */
+    var cont = 0;
+    for (i = 0; i < word.length; i++) {
         if (originalWord[i] == reverseWord[i]) {
-            return true;
+            cont++
         }
-        return false;
     }
+
+    if (cont == word.length) {
+        return true;
+    }
+    return false;
 }
