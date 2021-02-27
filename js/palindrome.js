@@ -20,7 +20,8 @@ if (palindrome(wordUser)) {
 /* Creo una funzione con 2 array vuoti nei quali inserisco tramite
 2 cicli for la parola originale e la stessa al contrario. Successivamente
 con un altro ciclo for controllo se i caratteri corrispondono */
-function palindrome(word) {
+
+/* function palindrome(word) {
 
     var originalWord = [];
     var reverseWord = [];
@@ -30,16 +31,33 @@ function palindrome(word) {
     }
     for (i = (word.length-1); i >= 0; i--) {
         reverseWord.push(word.charAt(i));
-    }
+    } */
+
 /* Inizializzo una variabile contatore per verificare 
 che effettivamente tutti caratteri sono uguali */
-    var cont = 0;
+
+/*     var cont = 0;
     for (i = 0; i < word.length; i++) {
         if (originalWord[i] == reverseWord[i]) {
             cont++
         }
     }
 
+    if (cont == word.length) {
+        return true;
+    }
+    return false;
+}
+ */
+
+//VERSIONE COMPATTA SENZA COPIA DI NUOVI ARRAY
+function palindrome(word) {
+    var cont = 0;
+    for (i = 0; i < word.length; i++) {
+        if (word.charAt(i) == word.charAt((word.length - 1) - i)){
+            cont++
+        }
+    }
     if (cont == word.length) {
         return true;
     }
