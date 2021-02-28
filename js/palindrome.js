@@ -53,13 +53,16 @@ che effettivamente tutti caratteri sono uguali */
 //VERSIONE COMPATTA SENZA COPIA DI NUOVI ARRAY
 function palindrome(word) {
     var cont = 0;
-    for (i = 0; i < word.length; i++) {
+    for (i = 0; i < word.length / 2; i++) { //Termino il ciclo for a metà parola
         if (word.charAt(i) == word.charAt((word.length - 1) - i)){
             cont++
         }
     }
-    if (cont == word.length) {
+    if (cont == Math.ceil(word.length / 2)) { //Utilizzo l'arrotondamento per eccesso in caso le parole abbiano un numero di lettere dispari
         return true;
     }
     return false;
 }
+
+/* Le ultime modifiche evitano che il ciclo for scorra tutta la parola
+visto che basterebbe anche solo arrivare a metà */
